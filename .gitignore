@@ -1,5 +1,5 @@
 .DS_Store
 *.pyc
-config/.py
+config/*.py
 !config/__init__.py
 data/market.json
