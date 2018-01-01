@@ -17,12 +17,22 @@ class HODLbot:
         self.__threads = []
         self.__market = self.get_market()
 
-        self.__initialize_portfolio()
+        self.__portfolio = self.__initialize_portfolio()
 
     @staticmethod
     def get_market():
         log.debug("Getting current Market data.")
         return collect_data()
+
+    @staticmethod
+    def summarize_portfolio(portfolio, market):
+        total_value_fiat = 0
+        for cc in portfolio:
+            if type(portfolio[cc]) is dict: # Check if CC
+                total_value_fiat = total_value_fiat + portfolio[cc]['investment'] * float(market[cc]['price_usd'])
+
+        return total_value_fiat
+
 
     def start(self):
         log.info("Starting HODLbot...")
@@ -59,24 +69,39 @@ class HODLbot:
 
         # Create a new portfolio and save it.
         for cc in self.__market:
+            if self.__market[cc]['symbol'] == self.__config['main_cc']:
+                is_main_currency = True
+            else:
+                is_main_currency = False
+
             initial_investment_fiat = self.__config['initial_fiat_investment'] / 10.0
-            log.debug("Initial fiat investment for {}: {} USD".format(cc, initial_investment_fiat))
-            initial_investment = float(self.__market[cc]['price_usd']) * initial_investment_fiat
-            log.debug("Initial investment for {}: {} {}".format(cc, initial_investment, self.__market[cc]['symbol']))
-            initial_investment_btc = float(self.__market[cc]['price_btc']) * initial_investment
-            log.debug("Initial investment value for {} in Bitcoin: {} BTC".format(cc, initial_investment_btc))
+            log.debug("Initial fiat investment in {}: {} USD".format(cc, initial_investment_fiat))
+            initial_investment = initial_investment_fiat / float(self.__market[cc]['price_usd'])
+            log.debug("Initial investment in {}: {} {}".format(cc, initial_investment, self.__market[cc]['symbol']))
+            initial_investment_btc = initial_investment * float(self.__market[cc]['price_btc'])
+            log.debug("Initial investment in {}: {} BTC".format(cc, initial_investment_btc))
 
             portfolio[cc] = {
                 'name': cc,
                 'symbol': self.__market[cc]['symbol'],
-                'main_currency': self.__is_main_currency(self.__market[cc]),
+                'main_cc': is_main_currency,
                 'investment_fiat': initial_investment_fiat,
                 'investment': initial_investment,
                 'investment_btc': initial_investment_btc
             }
 
+
+        total_value_fiat = self.__config['initial_fiat_investment']
+        total_value_btc = self.__config['initial_fiat_investment'] / float(self.__market['bitcoin']['price_usd'])
+        log.debug("Initial total fiat investment: {} USD".format(total_value_fiat))
+        log.debug("Initial total investment: {} BTC".format(total_value_btc))
+        portfolio['total_value_fiat'] = total_value_fiat
+        portfolio['total_value_btc'] = total_value_btc
+
         with open("data/portfolio.json", 'w') as f:
             json.dump(portfolio, f, sort_keys=True, indent=4)
+
+        return portfolio
 
     def __market_updater(self):
         while True:
@@ -87,4 +112,5 @@ class HODLbot:
     def __run(self):
         while True:
             log.debug("HODLbot running.")
+            print(self.summarize_portfolio(self.__portfolio, self.__market))
             sleep(5)
