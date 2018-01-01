@@ -2,4 +2,4 @@
 *.pyc
 config/*.py
 !config/__init__.py
-data/market.json
+data/*.json
