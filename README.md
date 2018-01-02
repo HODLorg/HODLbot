@@ -17,8 +17,8 @@ Running:
 ## ToDo
 * ~~Collect data from https://coinmarketcap.com/~~
 * ~~Import/Create a portfolio~~
-* Value summary
-* Offline trading implementation
-* Algorithm
+* ~~Value summary~~
+* ~~Offline trading implementation~~
+* ~~Algorithm~
 * Simulation for proof of concept based on historic data
 * Online trading via APIs
