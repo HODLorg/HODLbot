@@ -12,13 +12,4 @@ Installation:
 * Copy ``config/config.py.example``, customize configuration and save as ``config/config.py``
 
 Running:
-* Run in console with ``python start_bot.py``
-
-## ToDo
-* ~~Collect data from https://coinmarketcap.com/~~
-* Import/Create a portfolio
-* Value summary
-* Offline trading implementation
-* Algorithm
-* Simulation for proof of concept based on historic data
-* Online trading via APIs
+* Run in console with ``python start_bot.py`
