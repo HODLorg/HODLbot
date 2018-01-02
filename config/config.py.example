@@ -4,7 +4,8 @@
 config = {
     'main_fiat': "USD",
     'main_cc': "BTC",
-    'initial_fiat_investment': 1000.00,
+    'total_initial_investment_fiat': 1000.00,
+    'swap_threshold_percentage': 0.1,
     'min_trading_values': {
         'bitcoin': 0.001,
         'ripple': 10,
