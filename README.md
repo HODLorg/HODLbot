@@ -24,7 +24,7 @@ Running:
 * Online trading via APIs
 
 ## Example
-Running on live data for 12 hours:
+Running on live data for 12 hours (offline simulated trades on a bullish market):
 ```
 [2018-01-03 10:55:37,259][          Ticker][   bot][    INFO] Portfolio Summary
 [2018-01-03 10:55:37,260][          Ticker][   bot][    INFO] 117.884622 ADA (114.57 USD), +14.57 %
