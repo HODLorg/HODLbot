@@ -40,3 +40,20 @@ Running on live data for 12 hours (offline simulated trades on a bullish market)
 [2018-01-03 10:55:37,261][          Ticker][   bot][    INFO] --------------------
 [2018-01-03 10:55:37,261][          Ticker][   bot][    INFO] Portfolio value: 0.074598 BTC (1118.89 USD), +11.89 %
 ```
+
+Running on live data for 36 hours (offline simulated trades on a 24h-volatile market):
+```
+[2018-01-04 11:10:25,343][          Ticker][   bot][    INFO] Portfolio Summary
+[2018-01-04 11:10:25,343][          Ticker][   bot][    INFO] 99.164142 ADA (122.00 USD), +22.00 %
+[2018-01-04 11:10:25,343][          Ticker][   bot][    INFO] 0.387291 LTC (91.11 USD), -8.89 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] 65.340055 XEM (118.89 USD), +18.89 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] 0.017510 BTC (259.51 USD), +159.51 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] 0.083420 DASH (92.63 USD), -7.37 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] 0.108458 ETH (103.53 USD), +3.53 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] 33.467019 XRP (116.23 USD), +16.23 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] 145.756646 XLM (123.33 USD), +23.33 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] 24.557361 MIOTA (96.14 USD), -3.86 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] 0.035131 BCH (84.57 USD), -15.43 %
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] --------------------
+[2018-01-04 11:10:25,344][          Ticker][   bot][    INFO] Portfolio value: 0.082440 BTC (1207.94 USD), +20.79 %
+```
